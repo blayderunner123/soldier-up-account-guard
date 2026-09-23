@@ -13,6 +13,7 @@ Soldier-up Account Guard is a WordPress plugin for configurable account verifica
 - Verification status and administrative actions in the Users screen
 - Mail-failure monitoring, diagnostics, logs, and test-email support
 - Scheduled cleanup of abandoned unverified accounts
+- High-entropy verification-link tokens in addition to OTP and nonce validation
 
 ## Requirements
 
@@ -31,6 +32,10 @@ Soldier-up Account Guard is a WordPress plugin for configurable account verifica
 
 ## Release
 
-This repository contains the recovered production source for version 1.0.1. See [ARTIFACT-PROVENANCE.md](ARTIFACT-PROVENANCE.md) for provenance.
+This repository began with the recovered production source for version 1.0.1. Version 1.0.2 adds publication security hardening. See [ARTIFACT-PROVENANCE.md](ARTIFACT-PROVENANCE.md) for provenance.
 
 The plugin declares GPLv2-or-later licensing in its WordPress readme.
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for reporting guidance and implementation notes. Version 1.0.1 in this repository includes publication hardening that prevents a predictable WordPress user ID from being sufficient to reach account verification and email-correction actions.

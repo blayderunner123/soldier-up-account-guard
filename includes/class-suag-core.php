@@ -106,7 +106,12 @@ final class SUAG_Core {
     public static function get_verify_url( $user_id ) {
         $s = self::settings();
         $url = ! empty( $s['verify_page_id'] ) ? get_permalink( absint( $s['verify_page_id'] ) ) : home_url( '/verify-account/' );
-        return add_query_arg( 'user_id', absint( $user_id ), $url );
+        $token = get_user_meta( $user_id, '_suag_access_token', true );
+        if ( ! is_string( $token ) || strlen( $token ) < 32 ) {
+            $token = wp_generate_password( 48, false, false );
+            update_user_meta( $user_id, '_suag_access_token', $token );
+        }
+        return add_query_arg( array( 'user_id' => absint( $user_id ), 'suag_token' => $token ), $url );
     }
 
     public static function is_verified( $user_id ) {
@@ -120,7 +125,7 @@ final class SUAG_Core {
 
     public static function mark_verified( $user_id ) {
         update_user_meta( $user_id, '_suag_email_verified', '1' );
-        foreach ( array( '_suag_otp_hash','_suag_otp_expires','_suag_otp_attempts','_suag_otp_last_sent','_suag_otp_resends','_suag_mail_failed' ) as $key ) {
+        foreach ( array( '_suag_otp_hash','_suag_otp_expires','_suag_otp_attempts','_suag_otp_last_sent','_suag_otp_resends','_suag_mail_failed','_suag_access_token' ) as $key ) {
             delete_user_meta( $user_id, $key );
         }
         self::log_event( 'info', 'User ID ' . absint( $user_id ) . ' verified.' );
@@ -299,6 +304,11 @@ final class SUAG_Core {
         if ( ! $user_id ) { return $this->verification_message( 'Invalid Verification Request', 'This verification link is missing required information.' ); }
         $user = get_userdata( $user_id );
         if ( ! $user ) { return $this->verification_message( 'Invalid Verification Request', 'This account could not be found.' ); }
+        $provided_token = isset( $_GET['suag_token'] ) ? sanitize_text_field( wp_unslash( $_GET['suag_token'] ) ) : '';
+        $stored_token = get_user_meta( $user_id, '_suag_access_token', true );
+        if ( ! is_string( $stored_token ) || ! is_string( $provided_token ) || ! hash_equals( $stored_token, $provided_token ) ) {
+            return $this->verification_message( 'Invalid Verification Request', 'This verification link is invalid or has expired. Please use the latest link sent to your email address.' );
+        }
         $s = self::settings(); $notice = ''; $error = ''; $redirect_script = '';
 
         if ( self::is_verified( $user_id ) && ! empty( $s['force_password_setup'] ) ) {

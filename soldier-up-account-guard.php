@@ -3,17 +3,19 @@
  * Plugin Name: Soldier-up Account Guard
  * Plugin URI: https://soldierupdesigns.com/
  * Description: Configurable account verification, OTP onboarding, login protection, role-aware redirects, and account administration for WordPress and WooCommerce.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Soldier-up Designs
  * Author URI: https://soldierupdesigns.com/
  * Text Domain: soldier-up-account-guard
  * Requires at least: 6.1
  * Requires PHP: 7.4
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'SUAG_VERSION', '1.0.1' );
+define( 'SUAG_VERSION', '1.0.2' );
 define( 'SUAG_FILE', __FILE__ );
 define( 'SUAG_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SUAG_URL', plugin_dir_url( __FILE__ ) );

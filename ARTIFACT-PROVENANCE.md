@@ -7,4 +7,6 @@ This repository was initialized from the preserved release archive `soldier-up-a
 - Plugin version: 1.0.1
 - Source status: recovered directly from the release artifact, not recreated from memory
 
+The repository's 1.0.2 source adds a high-entropy verification-link token after a pre-publication security review. That hardening is intentionally distinguished from the immutable 1.0.1 release artifact.
+
 The original ZIP remains the immutable reference artifact and is not stored in this repository.

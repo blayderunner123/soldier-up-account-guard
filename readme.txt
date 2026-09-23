@@ -3,7 +3,7 @@ Contributors: soldierupdesigns
 Tags: otp, email verification, wordpress security, woocommerce, user registration
 Requires at least: 6.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 
 Configurable account verification, OTP onboarding, login protection, role-aware redirects, and account administration for WordPress and WooCommerce.
@@ -36,6 +36,10 @@ Highlights:
 6. Send a test email before production use.
 
 == Changelog ==
+
+= 1.0.2 =
+* Added high-entropy verification-link access tokens so a user ID alone cannot reach account verification or email-correction actions.
+* Added public-repository security and provenance documentation.
 
 = 1.0.1 =
 * Added General-tab Quick Start setup guide.
