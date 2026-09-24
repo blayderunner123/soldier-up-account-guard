@@ -6,6 +6,9 @@ Requires PHP: 7.4
 Stable tag: 1.0.2
 License: GPLv2 or later
 
+Copyright © 2026 Jonathan R. Adcox
+Original author: Jonathan R. Adcox (Blayderunner123)
+
 Configurable account verification, OTP onboarding, login protection, role-aware redirects, and account administration for WordPress and WooCommerce.
 
 == Description ==

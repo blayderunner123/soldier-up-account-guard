@@ -1,3 +1,9 @@
+/*
+ * Soldier-up Account Guard administration styles.
+ * Copyright © 2026 Jonathan R. Adcox
+ * Original author: Jonathan R. Adcox (Blayderunner123)
+ * Licensed under GPL-2.0-or-later; see LICENSE.
+ */
 :root{--suag-navy:#102a43;--suag-navy2:#173f63;--suag-orange:#ff5a24;--suag-orange2:#ff7a3d;--suag-ink:#1f2937;--suag-muted:#667085;--suag-border:#dfe5ec;--suag-bg:#f5f7fa;--suag-good:#17a673;--suag-warn:#d68a00;--suag-bad:#d63638}
 body.toplevel_page_suag-account-guard #wpcontent{background:var(--suag-bg)}
 .suag-admin{max-width:1500px;margin:0 24px 40px 8px;color:var(--suag-ink)}

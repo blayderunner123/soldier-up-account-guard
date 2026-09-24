@@ -1,5 +1,9 @@
 # Soldier-up Account Guard
 
+Copyright © 2026 Jonathan R. Adcox
+
+Original author: **Jonathan R. Adcox (Blayderunner123)**
+
 Soldier-up Account Guard is a WordPress plugin for configurable account verification, OTP onboarding, login protection, and role-aware redirects. WooCommerce integration is supported but optional.
 
 ## Features
@@ -35,6 +39,8 @@ Soldier-up Account Guard is a WordPress plugin for configurable account verifica
 This repository began with the recovered production source for version 1.0.1. Version 1.0.2 adds publication security hardening. See [ARTIFACT-PROVENANCE.md](ARTIFACT-PROVENANCE.md) for provenance.
 
 The plugin declares GPLv2-or-later licensing in its WordPress readme.
+
+This license permits use, modification, forking, improvement, and redistribution under its terms. Modified versions need not retain project branding or imply endorsement by the original author.
 
 ## Security
 
